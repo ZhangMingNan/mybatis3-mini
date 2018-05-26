@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+
+    <!--环境配置-->
+    <environments default="development">
+        <environment id="development">
+            <!--由于没有别名功能,这里先 使用 class 直接指向事务管理器实现类 后续改进为使用 type = 别名方式配置.  -->
+            <transactionManager type="JDBC"/>
+            <!--由于没有别名功能,这里先 使用 class 直接指向数据源工厂 , 后续改进为使用 type = 别名方式配置. -->
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/blog_db"/>
+                <property name="username" value="root"/>
+                <property name="password" value=""/>
+                <property name="driver.allowMultiQueries" value="true"/>
+                <property name="driver.useUnicode" value="true"/>
+                <property name="driver.characterEncoding" value="UTF-8"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--别名配置-->
+    <typeAliases>
+        <package name="com.ly.zmn48644.model"/>
+    </typeAliases>
+
+    <!--映射文件配置-->
+    <mappers>
+        <mapper resource="mapper/AuthorMapper.xml"/>
+    </mappers>
+
+</configuration>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mapper namespace="com.ly.zmn48644.mapper.AuthorMapper">
+    <select id="selectAuthorById" resultType="Author">
+        select id , author_username as username , author_password as password ,
+        author_email as email, author_bio as bio, favourite_section from t_author
+        <where>
+             id = ${id}
+        </where>
+    </select>
+
+</mapper>
+
+
